@@ -17,7 +17,7 @@
          * @access public 
          * @return HTML
          */
-        public function loadDocumentation(){
+        public static function loadDocumentation(){
             include 'documentacion/documentacion.php';
         }
     }

@@ -11,9 +11,9 @@
          * @param 
          * @return views
          */
-        public function defaultViews(string $view){
+        public function defaultViews(){
             Functions::header_html();
-            $load_documentation =  Redirect::loadDocumentation();
+            Redirect::loadDocumentation();
             
         }
 

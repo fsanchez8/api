@@ -64,7 +64,8 @@
          * 
          */
         public function api(){
-            $rute = EnrutadorAPI::Uri();
+            $ruta = new EnrutadorAPI;
+            $rute = $ruta->Uri();
             $this->loadEndPoint($rute);
         }
 
@@ -83,7 +84,7 @@
          * @param string
          * @return void
          */
-        public function loadEndPoint( array $endpoint){
+        public function loadEndPoint($endpoint){
             if(isset($endpoint['controller'])){
                 if($endpoint['controller'] === 'default'){
                     $default =  new Defaults;

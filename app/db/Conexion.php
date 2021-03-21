@@ -46,7 +46,7 @@ class Conexion {
             die(sprintf('No  hay conexión a la base de datos, hubo un error: %s', $e->getMessage()));
         }
     }
-
+ 
     /**
      * Método para hacer un query a la base de datos
      *

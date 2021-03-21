@@ -21,12 +21,13 @@ class Conexion {
      */
     public function __construct()
     {
-        $this->engine  = $_ENV['ENGINE'];
-        $this->charset = $_ENV['CHARSET'];
-        $this->host    = $_ENV['SERVER'];
-        $this->dbname  = $_ENV['DATABASE'];
-        $this->user    = $_ENV['USER'];
-        $this->pass    = $_ENV['PASS'];
+
+        $this->engine  = "mysql";
+        $this->charset = "utf8mb4";
+        $this->host    = "5.181.218.1";
+        $this->dbname  = "u211857841_blog";
+        $this->user    = "u211857841_blog";
+        $this->pass    = "Blog1232021";
         return $this;
     }
 
@@ -38,9 +39,7 @@ class Conexion {
     private function connect()
     {
         try {
-            $this->link = new PDO($this->engine . ':host=' . $this->host . ';dbname=' . $this->dbname . ';charset=' . $this->charset, $this->user , $this->pass, array(
-                PDO::ATTR_PERSISTENT => true
-            ));
+            $this->link = new PDO($this->engine . ':host=' . $this->host . ';dbname=' . $this->dbname . ';charset=' . $this->charset, $this->user , $this->pass,);
             return $this->link;
         } catch (PDOException $e) {
             die(sprintf('No  hay conexión a la base de datos, hubo un error: %s', $e->getMessage()));

@@ -1,0 +1,60 @@
+<?php 
+
+    namespace Route;
+
+    class EnrutadorAPI{
+        
+        private $uri = []; 
+        private $params;
+
+        /**
+         * Función para getionar las URLS de la API
+         * @access public 
+         * @param null
+         * @return self
+         */
+        public static function Uri(){
+            return self::parseUri();
+        }
+
+        /**
+         * Función para parsear y sanitizar la URL recibida
+         * @access public 
+         * @param null
+         * @return string | @return array
+         */
+        public function parseUri(){
+            $uri = $_SERVER["REQUEST_URI"];
+            $uri =  explode("/", filter_var(rtrim( $uri , "/"), FILTER_SANITIZE_URL));
+            $uri = array_filter($uri);
+            if(isset($uri[2])){
+                if(!isset($uri[3])){
+                    $routes = [
+                        "controller" => $uri[2],
+                    ];
+                    return  $routes;
+                }else{
+                    if(!isset($uri[4])){
+                        $routes = [
+                            "controller" => $uri[2],
+                            "params"     => $uri[3],
+                            "id"         => null
+                        ];
+                    }else{
+                        $routes = [
+                            "controller" => $uri[2],
+                            "params"     => $uri[3],
+                            "id"         => $uri[4]
+                        ];
+                    }
+                    return $routes;
+                }
+            }else {
+                return  $routes = [
+                    "controller" =>  "default"
+                ];
+            }  
+        }
+
+
+    }

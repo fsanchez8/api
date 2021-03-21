@@ -1,0 +1,25 @@
+{
+    "name": "coninsa/api",
+    "description": "Mini framework coninsa ram\u0000n h para API/proyectos",
+    "require": {
+        "vlucas/phpdotenv": "5.3.x-dev",
+        "firebase/php-jwt": "dev-master"
+    },
+    "autoload":{
+        "psr-4": {
+            "App\\"   : "app/",
+            "Route\\" : "routes/",
+            "Fx\\"    : "functions/", 
+            "View\\"  : "views/",
+            "JsonT\\" : "helpers/"
+
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fabio Sánchez",
+            "email": "fabio.ssanchez92@gmail.com"
+        }
+    ]
+}

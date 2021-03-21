@@ -13,8 +13,8 @@
          * @param null
          * @return self
          */
-        public static function Uri(){
-            return self::parseUri();
+        public function Uri(){
+            return $this->parseUri();
         }
 
         /**

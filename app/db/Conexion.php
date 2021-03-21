@@ -2,6 +2,7 @@
 
 namespace App\db;
 
+use Illuminate\Support\Arr;
 use PDO;
 use PDOException;
 
@@ -37,7 +38,9 @@ class Conexion {
     private function connect()
     {
         try {
-            $this->link = new PDO($this->engine . ':host=' . $this->host . ';dbname=' . $this->dbname . ';charset=' . $this->charset, $this->user , $this->pass);
+            $this->link = new PDO($this->engine . ':host=' . $this->host . ';dbname=' . $this->dbname . ';charset=' . $this->charset, $this->user , $this->pass, array(
+                PDO::ATTR_PERSISTENT => true
+            ));
             return $this->link;
         } catch (PDOException $e) {
             die(sprintf('No  hay conexión a la base de datos, hubo un error: %s', $e->getMessage()));

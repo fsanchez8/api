@@ -25,6 +25,7 @@
          */
         public function parseUri(){
             $uri = $_SERVER["REQUEST_URI"];
+            var_dump($uri);
             $uri =  explode("/", filter_var(rtrim( $uri , "/"), FILTER_SANITIZE_URL));
             $uri = array_filter($uri);
             if(isset($uri[2])){

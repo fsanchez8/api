@@ -100,7 +100,6 @@
                                 $param = [
                                     "controller" => $endpoint['controller'],
                                     "type"       => $endpoint['params'],
-                                    "id"         => $endpoint['id']
                                 ];
                             }
                             $this->processEndpoint($endpoint['controller'], $param);

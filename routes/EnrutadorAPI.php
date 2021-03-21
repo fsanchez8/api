@@ -30,21 +30,19 @@
             if(isset($uri[2])){
                 if(!isset($uri[3])){
                     $routes = [
-                        "controller" => $uri[1],
+                        "controller" => $uri[2],
                     ];
                     return  $routes;
                 }else{
                     if(!isset($uri[4])){
                         $routes = [
-                            "controller" => $uri[1],
-                            "params"     => $uri[2],
-                            "id"         => null
+                            "controller" => $uri[2],
+                            "params"     => $uri[3],
                         ];
                     }else{
                         $routes = [
-                            "controller" => $uri[1],
+                            "controller" => $uri[2],
                             "params"     => $uri[2],
-                            "id"         => $uri[3]
                         ];
                     }
                     return $routes;
